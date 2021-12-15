@@ -17,7 +17,7 @@ class CountriesModel {
     this.activeCases,
   });
 
-  factory CountriesModel.fromJson(Map<String, dynamic> json, String countryName) {
+  factory CountriesModel.fromJson(Map<String, dynamic> json) {
     final country = json["result"][0]["country"].toString();
     final totalCases = json["result"][0]["totalCases"].toString();
     final newCases = json["result"][0]["newCases"].toString();
