@@ -15,7 +15,8 @@ class StayHomeScreen extends StatelessWidget {
       body: Center(
         child: ElevatedButton(
             onPressed: () async {
-              GetTotalData().getData();
+              GetCoronaNews().getData();
+              
             },
             child: Text("test")),
       ),
