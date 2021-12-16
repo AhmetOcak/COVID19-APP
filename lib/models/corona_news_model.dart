@@ -13,12 +13,12 @@ class CoronaNewsModel {
     this.source,
   });
 
-  factory CoronaNewsModel.fromJson(Map<String, dynamic> json) {
-    final url = json["result"][0]["url"].toString();
-    final description = json["result"][0]["description"].toString();
-    final image = json["result"][0]["image"].toString();
-    final name = json["result"][0]["name"].toString();
-    final source = json["result"][0]["source"].toString();
+  factory CoronaNewsModel.fromJson(dynamic json) {
+    final url = json["url"].toString();
+    final description = json["description"].toString();
+    final image = json["image"].toString();
+    final name = json["name"].toString();
+    final source = json["source"].toString();
 
     return CoronaNewsModel(
       url: url,
