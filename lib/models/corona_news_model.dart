@@ -1,11 +1,27 @@
 class CoronaNewsModel {
+  final List<Result>? result;
+
+  CoronaNewsModel({
+    this.result,
+  });
+
+  factory CoronaNewsModel.fromJson(Map<String, dynamic> parsedJson) {
+    var list = parsedJson['result'] as List;
+    List<Result> resultList = list.map((e) => Result.fromJson(e)).toList();
+    return CoronaNewsModel(
+      result: resultList,
+    );
+  }
+}
+
+class Result {
   final String? url;
   final String? description;
   final String? image;
   final String? name;
   final String? source;
 
-  CoronaNewsModel({
+  Result({
     this.url,
     this.description,
     this.image,
@@ -13,14 +29,14 @@ class CoronaNewsModel {
     this.source,
   });
 
-  factory CoronaNewsModel.fromJson(dynamic json) {
-    final url = json["url"].toString();
-    final description = json["description"].toString();
-    final image = json["image"].toString();
-    final name = json["name"].toString();
-    final source = json["source"].toString();
+  factory Result.fromJson(dynamic parsedJson) {
+    final url = parsedJson["url"].toString();
+    final description = parsedJson["description"].toString();
+    final image = parsedJson["image"].toString();
+    final name = parsedJson["name"].toString();
+    final source = parsedJson["source"].toString();
 
-    return CoronaNewsModel(
+    return Result(
       url: url,
       description: description,
       image: image,
