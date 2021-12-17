@@ -4,7 +4,7 @@ import 'package:covid19_app/models/countries_data_model.dart';
 import 'package:http/http.dart' as http;
 
 class GetCountriesData {
-  Future<CountriesModel> getData() async {
+  Future<String> _getData() async {
     Uri url = Uri.parse("https://api.collectapi.com/corona/countriesData");
 
     var response = await http.post(url, headers: {
@@ -12,8 +12,13 @@ class GetCountriesData {
       "authorization": "apikey 2ehyKijlw4TOgwHb5zGL11:7wyAgBY84SwkjUDPGVaZmG",
     });
 
+    return response.body;
+  }
 
-    final json = jsonDecode(response.body);   
-    return CountriesModel.fromJson(json);
+  Future loadData() async {
+    String jsonProduct = await _getData();
+    final jsonRespone = json.decode(jsonProduct);
+    CountriesModel countriesModel = CountriesModel.fromJson(jsonRespone);
+    return countriesModel;
   }
 }

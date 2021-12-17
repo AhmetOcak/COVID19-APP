@@ -1,4 +1,20 @@
 class CountriesModel {
+  final List<Result>? result;
+
+  CountriesModel({
+    this.result,
+  });
+
+  factory CountriesModel.fromJson(Map<String, dynamic> parsedJson) {
+    var list = parsedJson['result'] as List;
+    List<Result> resultList = list.map((e) => Result.fromJson(e)).toList();
+    return CountriesModel(
+      result: resultList,
+    );
+  }
+}
+
+class Result {
   final String? country;
   final String? totalCases;
   final String? newCases;
@@ -7,7 +23,7 @@ class CountriesModel {
   final String? totalRecovered;
   final String? activeCases;
 
-  CountriesModel({
+  Result({
     this.country,
     this.totalCases,
     this.newCases,
@@ -17,16 +33,16 @@ class CountriesModel {
     this.activeCases,
   });
 
-  factory CountriesModel.fromJson(Map<String, dynamic> json) {
-    final country = json["result"][0]["country"].toString();
-    final totalCases = json["result"][0]["totalCases"].toString();
-    final newCases = json["result"][0]["newCases"].toString();
-    final totalDeaths = json["result"][0]["totalDeaths"].toString();
-    final newDeaths = json["result"][0]["newDeaths"].toString();
-    final totalRecovered = json["result"][0]["totalRecovered"].toString();
-    final activeCases = json["result"][0]["activeCases"].toString();
+  factory Result.fromJson(Map<String, dynamic> parsedJson) {
+    final country = parsedJson["country"].toString();
+    final totalCases = parsedJson["totalCases"].toString();
+    final newCases = parsedJson["newCases"].toString();
+    final totalDeaths = parsedJson["totalDeaths"].toString();
+    final newDeaths = parsedJson["newDeaths"].toString();
+    final totalRecovered = parsedJson["totalRecovered"].toString();
+    final activeCases = parsedJson["activeCases"].toString();
 
-    return CountriesModel(
+    return Result(
       country: country,
       totalCases: totalCases,
       newCases: newCases,
