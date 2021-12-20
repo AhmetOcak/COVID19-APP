@@ -1,12 +1,5 @@
-import 'package:covid19_app/models/continent_data_model.dart';
-import 'package:covid19_app/models/corona_news_model.dart';
-import 'package:covid19_app/models/countries_data_model.dart';
-import 'package:covid19_app/models/total_data_model.dart';
-import 'package:covid19_app/services/continent_data_service.dart';
-import 'package:covid19_app/services/corona_news_service.dart';
-import 'package:covid19_app/services/countries_data_service.dart';
-import 'package:covid19_app/services/total_data_service.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 class StayHomeScreen extends StatelessWidget {
   StayHomeScreen({Key? key}) : super(key: key);
@@ -14,10 +7,26 @@ class StayHomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
-        child: ElevatedButton(
-          onPressed: () async {},
-          child: Text("test"),
+      backgroundColor: Colors.blueAccent,
+      body: SafeArea(
+        child: Stack(
+          children: [
+            Center(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: [
+                  SvgPicture.asset('assets/images/Drcorona.svg'),
+                  Text(
+                    'STAY HOME',
+                    style: TextStyle(
+                      fontSize: 60,
+                      fontWeight: FontWeight.w700,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ],
         ),
       ),
     );
