@@ -6,6 +6,7 @@ class StayHomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    const String text = 'STAY HOME';
     return Scaffold(
       backgroundColor: Colors.blueAccent,
       body: SafeArea(
@@ -16,18 +17,22 @@ class StayHomeScreen extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
                   SvgPicture.asset('assets/images/Drcorona.svg'),
-                  Text(
-                    'STAY HOME',
-                    style: TextStyle(
-                      fontSize: 60,
-                      fontWeight: FontWeight.w700,
-                    ),
-                  ),
+                  MyText(text),
                 ],
               ),
             ),
           ],
         ),
+      ),
+    );
+  }
+
+  Text MyText(String text) {
+    return Text(
+      text,
+      style: const TextStyle(
+        fontSize: 60,
+        fontWeight: FontWeight.w700,
       ),
     );
   }
