@@ -3,10 +3,8 @@ import 'dart:convert';
 import 'package:covid19_app/models/total_data_model.dart';
 import 'package:http/http.dart' as http;
 
-
-class GetTotalData{
+class GetTotalData {
   Future<TotalDataModel> getData() async {
-
     Uri url = Uri.parse("https://api.collectapi.com/corona/totalData");
 
     var response = await http.post(url, headers: {
@@ -16,6 +14,5 @@ class GetTotalData{
 
     final json = jsonDecode(response.body);
     return TotalDataModel.fromJson(json);
-
   }
 }
