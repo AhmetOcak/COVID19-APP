@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:covid19_app/api_key.dart';
 import 'package:covid19_app/models/continent_data_model.dart';
 import 'package:http/http.dart' as http;
 
@@ -9,7 +10,7 @@ class GetContinentData {
 
     var response = await http.post(url, headers: {
       "content-type": "application/json",
-      "authorization": "apikey 2ehyKijlw4TOgwHb5zGL11:7wyAgBY84SwkjUDPGVaZmG",
+      "authorization": GetApiKey.apiKey,
     });
 
     return response.body;

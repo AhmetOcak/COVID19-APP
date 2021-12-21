@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:covid19_app/api_key.dart';
 import 'package:covid19_app/models/corona_news_model.dart';
 import 'package:http/http.dart' as http;
 
@@ -11,7 +12,7 @@ class GetCoronaNews {
       url,
       headers: {
         "content-type": "application/json",
-        "authorization": "apikey 2ehyKijlw4TOgwHb5zGL11:7wyAgBY84SwkjUDPGVaZmG",
+        "authorization": GetApiKey.apiKey,
       },
     );
 
