@@ -1,22 +1,42 @@
-import 'package:covid19_app/views/continent_data_screen.dart';
-import 'package:covid19_app/views/corona_news_screen.dart';
-import 'package:covid19_app/views/country_data_screen.dart';
-import 'package:covid19_app/views/stay_home_screen.dart';
-import 'package:covid19_app/views/total_data_screen.dart';
+import 'package:covid19_app/constants/curved_navbar_items.dart';
+import 'package:covid19_app/constants/screens.dart';
+import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
 
 void main() {
   runApp(
     MaterialApp(
       debugShowCheckedModeBanner: false,
-      initialRoute: '/',
-      routes: {
-        '/': (context) => StayHomeScreen(),
-        '/country': (context) => CountryDataScreen(),
-        '/total': (context) => TotalDataScreen(),
-        '/news': (context) => NewsScreen(),
-        '/continent': (context) => ContinentDataScreen(),
-      },
+      home: Main(),
     ),
   );
+}
+
+class Main extends StatefulWidget {
+  Main({Key? key}) : super(key: key);
+
+  @override
+  _MainState createState() => _MainState();
+}
+
+class _MainState extends State<Main> {
+  int index = 2;
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      extendBody: true,
+      bottomNavigationBar: CurvedNavigationBar(
+        backgroundColor: Colors.transparent,
+        items: items,
+        height: 60,
+        index: index,
+        onTap: (index) {
+          setState(() {
+            this.index = index;
+          });
+        },
+      ),
+      body: screens[index],
+    );
+  }
 }
