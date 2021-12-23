@@ -14,10 +14,13 @@ class StayHomeScreen extends StatelessWidget {
           children: [
             Center(
               child: Column(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   SvgPicture.asset('assets/images/Drcorona.svg'),
-                  MyText(text),
+                  Padding(
+                    padding: const EdgeInsets.only(top: 20.0,),
+                    child: MyText(text),
+                  ),
                 ],
               ),
             ),
@@ -33,6 +36,7 @@ class StayHomeScreen extends StatelessWidget {
       style: const TextStyle(
         fontSize: 60,
         fontWeight: FontWeight.w700,
+        color: Colors.white,
       ),
     );
   }
