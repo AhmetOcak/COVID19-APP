@@ -10,6 +10,8 @@ class CountryDataScreen extends StatefulWidget {
 class _CountryDataScreenState extends State<CountryDataScreen> {
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Center(
+      child: Text('country'),
+    );
   }
 }

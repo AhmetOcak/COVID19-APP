@@ -10,6 +10,8 @@ class TotalDataScreen extends StatefulWidget {
 class _TotalDataScreenState extends State<TotalDataScreen> {
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Center(
+      child: Text('total'),
+    );
   }
 }

@@ -1,3 +1,5 @@
+import 'package:covid19_app/constants/curved_navbar_items.dart';
+import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
@@ -18,7 +20,9 @@ class StayHomeScreen extends StatelessWidget {
                 children: [
                   SvgPicture.asset('assets/images/Drcorona.svg'),
                   Padding(
-                    padding: const EdgeInsets.only(top: 20.0,),
+                    padding: const EdgeInsets.only(
+                      top: 20.0,
+                    ),
                     child: MyText(text),
                   ),
                 ],
