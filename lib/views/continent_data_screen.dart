@@ -1,3 +1,4 @@
+import 'package:covid19_app/constants/colors.dart';
 import 'package:flutter/material.dart';
 
 class ContinentDataScreen extends StatefulWidget {
@@ -10,8 +11,8 @@ class ContinentDataScreen extends StatefulWidget {
 class _ContinentDataScreenState extends State<ContinentDataScreen> {
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: Text('continent'),
+    return Scaffold(
+      backgroundColor: mainColor,
     );
   }
 }
