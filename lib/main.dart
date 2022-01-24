@@ -1,3 +1,4 @@
+import 'package:covid19_app/constants/colors.dart';
 import 'package:covid19_app/constants/curved_navbar_items.dart';
 import 'package:covid19_app/constants/screens.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
