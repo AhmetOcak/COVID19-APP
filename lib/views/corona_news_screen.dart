@@ -49,10 +49,13 @@ class _NewsScreenState extends State<NewsScreen> {
                 itemCount: listLength,
                 itemBuilder: (BuildContext context, int index) {
                   return NewsCard(
-                      image: _newsModel.result![index].image.toString(),
-                      name: _newsModel.result![index].name.toString(),
-                      description: _newsModel.result![index].description.toString(),
-                      source: _newsModel.result![index].source.toString());
+                    image: _newsModel.result![index].image.toString(),
+                    name: _newsModel.result![index].name.toString(),
+                    description:
+                        _newsModel.result![index].description.toString(),
+                    source: _newsModel.result![index].source.toString(),
+                    url: _newsModel.result![index].url.toString(),
+                  );
                 },
               ),
             ),

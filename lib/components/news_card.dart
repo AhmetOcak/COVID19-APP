@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class NewsCard extends StatelessWidget {
   const NewsCard({
@@ -7,18 +8,20 @@ class NewsCard extends StatelessWidget {
     required this.name,
     required this.description,
     required this.source,
+    required this.url,
   }) : super(key: key);
 
   final String image;
   final String name;
   final String description;
   final String source;
+  final String url;
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        
+        _launchURL(url);
       },
       child: Card(
         child: Column(
@@ -83,4 +86,8 @@ class NewsCard extends StatelessWidget {
       ),
     );
   }
+}
+
+void _launchURL(String targetUrl) async {
+  if (!await launch(targetUrl)) throw 'Could not launch $targetUrl';
 }
