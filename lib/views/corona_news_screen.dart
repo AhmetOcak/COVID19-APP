@@ -15,21 +15,12 @@ class _NewsScreenState extends State<NewsScreen> {
   CoronaNewsModel _newsModel = CoronaNewsModel();
   GetCoronaNews _coronaNews = GetCoronaNews();
 
-  String url = "https://www.ledr.com/colours/white.jpg";
-  String name = "";
-  String description = "";
-  String source = "";
   int listLength = 0;
 
   @override
   void initState() {
     super.initState();
     getCoronaNews().then((value) => setState(() {
-          url = _newsModel.result![0].image.toString();
-          name = _newsModel.result![0].name.toString();
-          name = name.replaceAll('\\', "");
-          description = _newsModel.result![0].description.toString();
-          source = _newsModel.result![0].source.toString();
           listLength = _newsModel.result!.length;
         }));
   }
@@ -58,10 +49,9 @@ class _NewsScreenState extends State<NewsScreen> {
                 itemCount: listLength,
                 itemBuilder: (BuildContext context, int index) {
                   return NewsCard(
-                      url: _newsModel.result![index].image.toString(),
+                      image: _newsModel.result![index].image.toString(),
                       name: _newsModel.result![index].name.toString(),
-                      description: description =
-                          _newsModel.result![index].description.toString(),
+                      description: _newsModel.result![index].description.toString(),
                       source: _newsModel.result![index].source.toString());
                 },
               ),
