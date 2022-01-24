@@ -1,3 +1,4 @@
+import 'package:covid19_app/components/news_card.dart';
 import 'package:covid19_app/constants/colors.dart';
 import 'package:covid19_app/models/corona_news_model.dart';
 import 'package:covid19_app/services/corona_news_service.dart';
@@ -17,6 +18,8 @@ class _NewsScreenState extends State<NewsScreen> {
   String url = "https://www.ledr.com/colours/white.jpg";
   String name = "";
   String description = "";
+  String source = "";
+  int listLength = 0;
 
   @override
   void initState() {
@@ -24,7 +27,10 @@ class _NewsScreenState extends State<NewsScreen> {
     getCoronaNews().then((value) => setState(() {
           url = _newsModel.result![0].image.toString();
           name = _newsModel.result![0].name.toString();
+          name = name.replaceAll('\\', "");
           description = _newsModel.result![0].description.toString();
+          source = _newsModel.result![0].source.toString();
+          listLength = _newsModel.result!.length;
         }));
   }
 
@@ -42,45 +48,22 @@ class _NewsScreenState extends State<NewsScreen> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Card(
-              child: Column(
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.only(
-                      left: 8.0,
-                      right: 8.0,
-                    ),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Image.network(
-                          url,
-                          height: MediaQuery.of(context).size.height / 6,
-                          width: MediaQuery.of(context).size.width / 2.5,
-                        ),
-                        const SizedBox(
-                          width: 15,
-                        ),
-                        Flexible(
-                          child: Text(
-                            name,
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.only(
-                      left: 8.0,
-                      right: 8.0,
-                      bottom: 8.0,
-                    ),
-                    child: Flexible(
-                      child: Text(description),
-                    ),
-                  ),
-                  Row(),
-                ],
+            Container(
+              padding: const EdgeInsets.only(
+                top: 10,
+              ),
+              width: MediaQuery.of(context).size.width,
+              height: MediaQuery.of(context).size.height,
+              child: ListView.builder(
+                itemCount: listLength,
+                itemBuilder: (BuildContext context, int index) {
+                  return NewsCard(
+                      url: _newsModel.result![index].image.toString(),
+                      name: _newsModel.result![index].name.toString(),
+                      description: description =
+                          _newsModel.result![index].description.toString(),
+                      source: _newsModel.result![index].source.toString());
+                },
               ),
             ),
           ],
