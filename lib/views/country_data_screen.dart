@@ -1,3 +1,4 @@
+import 'package:covid19_app/constants/colors.dart';
 import 'package:flutter/material.dart';
 
 class CountryDataScreen extends StatefulWidget {
@@ -10,8 +11,11 @@ class CountryDataScreen extends StatefulWidget {
 class _CountryDataScreenState extends State<CountryDataScreen> {
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: Text('country'),
+    return Scaffold(
+      backgroundColor: mainColor,
+      body: Column(
+        
+      ),
     );
   }
 }

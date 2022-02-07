@@ -17,6 +17,11 @@ class _TotalDataScreenState extends State<TotalDataScreen> {
   GetTotalData _totalData = GetTotalData();
   TotalDataModel _dataModel = TotalDataModel();
 
+  String totalDeath = " ";
+  String totalCases = " ";
+  String totalRecovered = " ";
+
+
   Future<TotalDataModel> getTotalData() async {
     TotalDataModel dataModel = await _totalData.getData();
     _dataModel = dataModel;
@@ -26,7 +31,11 @@ class _TotalDataScreenState extends State<TotalDataScreen> {
   @override
   void initState() {
     super.initState();
-    getTotalData().then((value) => setState(() {}));
+    getTotalData().then((value) => setState(() {
+      totalDeath = value.totalDeaths!;
+      totalCases = value.totalCases!;
+      totalRecovered = value.totalRecovered!;
+    }));
   }
 
   @override
@@ -50,15 +59,15 @@ class _TotalDataScreenState extends State<TotalDataScreen> {
               ),
               TotalCard(
                 text: "Total Deaths",
-                data: _dataModel.totalDeaths.toString(),
+                data: totalDeath,
               ),
               TotalCard(
                 text: "Total Cases",
-                data: _dataModel.totalCases.toString(),
+                data: totalCases,
               ),
               TotalCard(
                 text: "Total Recovered",
-                data: _dataModel.totalRecovered.toString(),
+                data: totalRecovered,
               ),
             ],
           ),

@@ -24,6 +24,7 @@ class NewsCard extends StatelessWidget {
         _launchURL(url);
       },
       child: Card(
+        color: Colors.white70,
         child: Column(
           children: [
             Padding(
