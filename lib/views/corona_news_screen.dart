@@ -1,11 +1,12 @@
 import 'package:covid19_app/components/news_card.dart';
+import 'package:covid19_app/components/spin_kit.dart';
 import 'package:covid19_app/constants/colors.dart';
 import 'package:covid19_app/models/corona_news_model.dart';
 import 'package:covid19_app/services/corona_news_service.dart';
 import 'package:flutter/material.dart';
 
 class NewsScreen extends StatefulWidget {
-  NewsScreen({Key? key}) : super(key: key);
+  const NewsScreen({Key? key}) : super(key: key);
 
   @override
   _NewsScreenState createState() => _NewsScreenState();
@@ -13,15 +14,17 @@ class NewsScreen extends StatefulWidget {
 
 class _NewsScreenState extends State<NewsScreen> {
   CoronaNewsModel _newsModel = CoronaNewsModel();
-  GetCoronaNews _coronaNews = GetCoronaNews();
+  final GetCoronaNews _coronaNews = GetCoronaNews();
 
   int listLength = 0;
+  bool dataCheck = false;
 
   @override
   void initState() {
     super.initState();
     getCoronaNews().then((value) => setState(() {
           listLength = _newsModel.result!.length;
+          dataCheck = true;
         }));
   }
 
@@ -39,28 +42,31 @@ class _NewsScreenState extends State<NewsScreen> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Container(
-              padding: const EdgeInsets.only(
-                top: 10,
-              ),
-              width: MediaQuery.of(context).size.width,
-              height: MediaQuery.of(context).size.height,
-              child: ListView.builder(
-                itemCount: listLength,
-                itemBuilder: (BuildContext context, int index) {
-                  return NewsCard(
-                    image: _newsModel.result![index].image.toString(),
-                    name: _newsModel.result![index].name.toString(),
-                    description:
-                        _newsModel.result![index].description.toString(),
-                    source: _newsModel.result![index].source.toString(),
-                    url: _newsModel.result![index].url.toString(),
-                  );
-                },
-              ),
-            ),
+            dataCheck == false ? const SpinKit() : DataArea(context),
           ],
         ),
+      ),
+    );
+  }
+
+  Container DataArea(BuildContext context) {
+    return Container(
+      padding: const EdgeInsets.only(
+        top: 10,
+      ),
+      width: MediaQuery.of(context).size.width,
+      height: MediaQuery.of(context).size.height,
+      child: ListView.builder(
+        itemCount: listLength,
+        itemBuilder: (BuildContext context, int index) {
+          return NewsCard(
+            image: _newsModel.result![index].image.toString(),
+            name: _newsModel.result![index].name.toString(),
+            description: _newsModel.result![index].description.toString(),
+            source: _newsModel.result![index].source.toString(),
+            url: _newsModel.result![index].url.toString(),
+          );
+        },
       ),
     );
   }
