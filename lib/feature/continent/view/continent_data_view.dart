@@ -20,8 +20,7 @@ class _ContinentDataScreenState extends State<ContinentDataScreen> {
   bool dataCheck = false;
 
   Future<ContinentDataModel> getContinentData() async {
-    ContinentDataModel continentDataModel = await _getContinentData.loadData();
-    _continentDataModel = continentDataModel;
+    _continentDataModel = (await _getContinentData.loadData())!;
     return _continentDataModel;
   }
 
