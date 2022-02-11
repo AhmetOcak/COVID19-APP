@@ -1,7 +1,7 @@
 import 'dart:convert';
 
 import 'package:covid19_app/api_key.dart';
-import 'package:covid19_app/models/countries_data_model.dart';
+import 'package:covid19_app/feature/country/model/countries_data_model.dart';
 import 'package:http/http.dart' as http;
 
 class GetCountriesData {

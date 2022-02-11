@@ -1,7 +1,7 @@
 import 'dart:convert';
 
 import 'package:covid19_app/api_key.dart';
-import 'package:covid19_app/models/corona_news_model.dart';
+import 'package:covid19_app/feature/news/model/corona_news_model.dart';
 import 'package:http/http.dart' as http;
 
 class GetCoronaNews {

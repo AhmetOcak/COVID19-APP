@@ -1,8 +1,9 @@
-import 'package:covid19_app/components/data_card.dart';
-import 'package:covid19_app/components/spin_kit.dart';
-import 'package:covid19_app/constants/colors.dart';
-import 'package:covid19_app/models/total_data_model.dart';
-import 'package:covid19_app/services/total_data_service.dart';
+
+import 'package:covid19_app/core/components/spinkit/spinkit.dart';
+import 'package:covid19_app/core/constants/colors.dart';
+import 'package:covid19_app/feature/total_data/model/total_data_model.dart';
+import 'package:covid19_app/feature/total_data/model/totaldata_card.dart';
+import 'package:covid19_app/feature/total_data/service/total_data_service.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 

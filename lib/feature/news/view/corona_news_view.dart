@@ -1,8 +1,8 @@
-import 'package:covid19_app/components/news_card.dart';
-import 'package:covid19_app/components/spin_kit.dart';
-import 'package:covid19_app/constants/colors.dart';
-import 'package:covid19_app/models/corona_news_model.dart';
-import 'package:covid19_app/services/corona_news_service.dart';
+import 'package:covid19_app/core/components/spinkit/spinkit.dart';
+import 'package:covid19_app/core/constants/colors.dart';
+import 'package:covid19_app/feature/news/model/corona_news_model.dart';
+import 'package:covid19_app/feature/news/model/news_card.dart';
+import 'package:covid19_app/feature/news/service/corona_news_service.dart';
 import 'package:flutter/material.dart';
 
 class NewsScreen extends StatefulWidget {

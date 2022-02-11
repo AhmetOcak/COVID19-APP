@@ -2,11 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 class StayHomeScreen extends StatelessWidget {
-  StayHomeScreen({Key? key}) : super(key: key);
+  const StayHomeScreen({Key? key}) : super(key: key);
+
+  final String text = 'STAY HOME';
+  final url = "assets/images/Drcorona.svg";
 
   @override
   Widget build(BuildContext context) {
-    const String text = 'STAY HOME';
     return Scaffold(
       backgroundColor: Colors.blueAccent,
       body: SafeArea(
@@ -16,7 +18,7 @@ class StayHomeScreen extends StatelessWidget {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  SvgPicture.asset('assets/images/Drcorona.svg'),
+                  SvgPicture.asset(url),
                   Padding(
                     padding: const EdgeInsets.only(
                       top: 20.0,
@@ -32,6 +34,7 @@ class StayHomeScreen extends StatelessWidget {
     );
   }
 
+  // ignore: non_constant_identifier_names
   Text MyText(String text) {
     return Text(
       text,

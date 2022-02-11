@@ -1,4 +1,5 @@
-import 'package:covid19_app/constants/colors.dart';
+
+import 'package:covid19_app/core/constants/colors.dart';
 import 'package:flutter/cupertino.dart';
 
 import 'package:flutter/material.dart';

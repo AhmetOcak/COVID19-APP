@@ -1,8 +1,8 @@
-import 'package:covid19_app/components/continent_data_card.dart';
-import 'package:covid19_app/components/spin_kit.dart';
-import 'package:covid19_app/constants/colors.dart';
-import 'package:covid19_app/models/continent_data_model.dart';
-import 'package:covid19_app/services/continent_data_service.dart';
+import 'package:covid19_app/core/components/spinkit/spinkit.dart';
+import 'package:covid19_app/core/constants/colors.dart';
+import 'package:covid19_app/feature/continent/model/continent_data_card.dart';
+import 'package:covid19_app/feature/continent/model/continent_data_model.dart';
+import 'package:covid19_app/feature/continent/service/continent_data_service.dart';
 import 'package:flutter/material.dart';
 
 class ContinentDataScreen extends StatefulWidget {
