@@ -2,9 +2,9 @@
 
 Kullanılan api kaynağı (Api resource) => https://collectapi.com/tr/api/corona/covid-19-koronavirus-istatistik-api?tab=pricing
 
-api_key classında belirtilen yere api keyinizi girmeniz gerekmektedir.
+.env dosyasında belirtilen yere api keyinizi girmeniz gerekmektedir.
 
-You need to enter your api key to the place specified in the api_key class.
+You need to enter your api key to the specified place in the .env file.
 
 Uygulamadan görseller / Images from the app
 
