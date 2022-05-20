@@ -1,4 +1,4 @@
-# covid19_app
+# Covid19 App
 
 Kullanılan api kaynağı (Api resource) => https://collectapi.com/tr/api/corona/covid-19-koronavirus-istatistik-api?tab=pricing
 
